@@ -113,9 +113,11 @@ public class CosIntegralApp extends JFrame {
             for (x = a; x < b; x += h) {
                 sum += Math.cos(x) * h;
             }
-            if(x>b){
-                sum+= Math.cos(b)*(b-(x-h));
-            }
+            // if(x>b){
+           //    sum+= Math.cos(b)*(b-(x-h)); 
+           // }
+            sum += (x>b) ? (Math.cos(b)*(b-(x-h))) :(0);
+            
             tableModel.setValueAt(sum, selectedRow, 3);
 
         } catch (NumberFormatException ex) {
